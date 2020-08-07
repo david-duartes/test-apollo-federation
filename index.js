@@ -6,7 +6,10 @@ const port = 4000;
 // The ApolloServer constructor requires two parameters: your schema
 // definition and your set of resolvers.
 const gateway = new ApolloGateway({
-  serviceList: [{ name: "user", url: "http://localhost:4001" }],
+  serviceList: [
+    { name: "user", url: "http://localhost:4001" },
+    { name: "post", url: "http://localhost:4002" },
+  ],
 });
 
 const server = new ApolloServer({ gateway, subscriptions: false });

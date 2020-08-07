@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently -k npm:server:*",
+    "server:post": "nodemon --exec babel-node ./modules/federation/post/post.js",
     "server:user": "nodemon --exec babel-node ./modules/federation/user/user.js",
     "server:bff": "nodemon --exec babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -3,6 +3,13 @@ import fetch from "node-fetch";
 const apiUrl = "https://jsonplaceholder.typicode.com";
 
 const resolvers = {
+  User: {
+    async __resolveReference(ref) {
+      return await fetch(`${apiUrl}/users/${ref.id}`)
+        .then((res) => res.json())
+        .catch((error) => console.error("Error:", error));
+    },
+  },
   Query: {
     async users() {
       var response = await fetch(`${apiUrl}/users`)
